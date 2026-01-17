@@ -1,0 +1,352 @@
+:root {
+    --minecraft-green: #569147;
+    --minecraft-brown: #79553D;
+    --minecraft-gray: #B7B7B7;
+    --minecraft-dark-gray: #4C4C4C;
+    --minecraft-light-gray: #DEDEDE;
+    --minecraft-border-dark: #3A3A3A;
+    --minecraft-border-light: #F7F7F7;
+    --minecraft-text-color: #333;
+}
+
+body {
+    margin: 0;
+    font-family: 'Press Start 2P', cursive;
+    background-image: url('bg2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--minecraft-text-color);
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+/* --- Header & Nav --- */
+.header {
+    padding-top: 20;
+}
+
+.logo {
+    width: 550px;
+    ont-size: 40px;
+    color: rgb(255, 255, 255);
+    text-shadow: 4px 4px 0px var(--minecraft-dark-gray);
+    margin-bottom: 25px;
+    display: inline-block;
+    cursor: col-resize;
+}
+
+.header-tools {
+    position:center ;
+    top: -10px;
+    display: center;
+    justify-content: center;
+}
+
+.pickaxe {
+    width: 350px;
+    ransform: rotate(-45deg);
+    margin:  50px;
+    filter: drop-shadow(3px 3px 0 var(--minecraft-dark-gray));
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 11px;
+    filter: drop-shadow(3px 3px 0 var(--minecraft-dark-gray));
+    
+    
+}
+
+.nav-item {
+    display: block;
+    background: url('papan\ kayu\ \(1\).png') no-repeat center center;
+    background-size: contain;
+    width: 150px;
+    height: 100px;
+    text-decoration: none;
+    color: #f9f9f9;
+    font-size: 10px;
+    padding-top: 48px;
+    box-sizing: border-box;
+    text-shadow: 2px 2px 0 var(--minecraft-brown);
+    transition: transform 0.2s;
+    
+}
+
+.nav-item:hover {
+    transform: translateY(-5px);
+}
+
+/* --- Main Content --- */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    cursor: not-allowed;
+}
+
+.introduction-box {
+    background-color: var(--minecraft-light-gray);
+    border: 5px solid var(--minecraft-border-dark);
+    box-shadow: 
+        10px 10px 0 0 rgba(0, 0, 0, 0.4), /* Shadow untuk efek 3D */
+        inset 2px 2px 0 0 var(--minecraft-border-light),
+        inset -2px -2px 0 0 var(--minecraft-border-dark);
+    padding: 20px;
+    width: 80%;
+    max-width: 700px;
+    
+}
+
+.section-title {
+    font-size: 16px;
+    text-shadow: 2px 2px 0 var(--minecraft-dark-gray);
+    margin-bottom: 20px;
+    cursor: text;
+}
+
+.subject-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+}
+
+.subject-card {
+    text-decoration: none;
+    color: inherit;
+    width: 100px;
+    height: 100px;
+    background-color: var(--minecraft-gray);
+    border: 3px solid var(--minecraft-border-dark);
+    box-shadow: 
+        inset 1px 1px 0 0 var(--minecraft-border-light),
+        inset -1px -1px 0 0 var(--minecraft-border-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    box-sizing: border-box;
+    transition: transform 0.2s;
+    filter: drop-shadow(3px 3px 0 var(--minecraft-dark-gray));
+}
+
+.subject-card:hover {
+    transform: translateY(-5px);
+}
+
+.subject-icon {
+    width: 60px;
+    height: 60px;
+    image-rendering: pixelated;
+    filter: drop-shadow(1px 2px 0 var(--minecraft-dark-gray));
+    cursor: wait;
+}
+
+.subject-name {
+    font-size: 8px;
+    margin-top: 5px;
+    line-height: 1.2;
+    filter: drop-shadow(1px 1px 0 var(--minecraft-dark-gray));
+}
+
+.arrow-separator {
+    font-size: 40px;
+    color: var(--minecraft-dark-gray);
+}
+
+.crafting-slot {
+    width: 100px;
+    height: 100px;
+    border: 3px dashed var(--minecraft-dark-gray);
+}
+/* --- dasbord ke 2 ---*/
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.text-box {
+    background-color: var(--minecraft-light-gray);
+    border: 5px solid var(--minecraft-border-dark);
+    box-shadow: 
+        10px 10px 0 0 rgba(0, 0, 0, 0.4),
+        inset 2px 2px 0 0 var(--minecraft-border-light),
+        inset -2px -2px 0 0 var(--minecraft-border-dark);
+    padding: 30px;
+    width: 80%;
+    max-width: 800px;
+    text-align: left; /* Mengatur perataan teks */
+    cursor: auto;
+}
+
+.text-box p {
+    font-size: 12px;
+    line-height: 1.5; /* Mengatur jarak antar baris */
+    color: var(--minecraft-text-color);
+}
+
+/* --- sosialmedia--- */
+.footer {
+    background-color: var(--minecraft-dark-gray);
+    color: var(--minecraft-light-gray);
+    padding: 15px;
+    border-top: 5px solid var(--minecraft-border-dark);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    cursor: move;
+}
+
+.social-icons img {
+    width: 24px;
+    height: 24px;
+    image-rendering: pixelated;
+    filter: drop-shadow(1px 1px 0 rgba(0,0,0,0.5));
+}
+.social-icons>img:hover{
+    width: 30px;
+    height:30px ;
+    image-rendering: pixelated;
+    filter: drop-shadow(1px 1px 0 rgba(0,0,0,0.5));
+    transition: all .4s ease-in-out;
+}
+
+.copyright {
+    font-size: 8px;
+    margin: 0;
+    cursor: col-resize;
+}
+
+
+*** --- ***
+.dashboard-main{
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between buttons */
+    width: 100%;
+}
+
+.achievement-button{
+    background-color: var(--minecraft-light-gray);
+    border: 3px solid var(--minecraft-border-gray);
+    color: var(--minecraft-text-color);
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 0 0 #8d8787; /* Simple 3D effect */
+    transition: all 0.1s ease-in-out;
+}
+
+.achievement-button:hover{
+    background-color: #C0C0C0;
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 0 #6F6F6F;
+}
+
+
+/* Gaya Dasar Halaman */
+boy {
+    display: flex;
+    justify-content: center; /* Pusatkan secara horizontal */
+    align-items: center; /* Pusatkan secara vertikal */
+    min-height: 100vh; /* Pastikan tinggi halaman minimal 100% viewport */
+    margin: 0;
+    background-color:var(--minecraft-light-gray);
+    /* Untuk gaya pixelated, bisa ditambahkan font pixel art jika diinginkan */
+    font-family: sans-serif; /* Font default */
+}
+
+/* Container untuk Menu */
+.menu-container {
+    display: flex;
+    flex-direction: column; /* Tombol disusun vertikal */
+    gap: 25px; /* Jarak antar tombol */
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Gaya untuk Tombol Menu */
+.menu-button {
+    /* Ukuran dan Teks */
+    width: 350px; /* Sesuaikan lebar sesuai kebutuhan */
+    padding: 15px 30px;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    
+    /* Warna dan Border (untuk tampilan seperti Minecraft/Retro) */
+    background-color: var(--minecraft-light-gray);
+    color: #1f1f1f; /* Warna teks gelap */
+    border: none;
+    cursor: pointer;
+    
+    /* Efek Pixelated/Blok */
+    border-top: 3px solid #fcfcfc;    /* Garis atas sangat terang/putih */
+    border-left: 3px solid #fcfcfc;   /* Garis kiri sangat terang/putih */
+    border-right: 3px solid #6e6e6e;  /* Garis kanan abu-abu gelap */
+    border-bottom: 3px solid #6e6e6e; /* Garis bawah abu-abu gelap */
+    
+    /* Bayangan (Shadow) agar terlihat timbul seperti pada gambar */
+    box-shadow: 
+        4px 4px 0 0 #3a3a3a, /* Bayangan utama di bawah-kanan (seperti blok) */
+        -4px -4px 0 0 #e8e8e8, /* Bayangan ringan di atas-kiri (opsional untuk efek timbul) */
+        inset 0 0 0 1px #8f8f8f; /* Garis tipis di dalam untuk detail (opsional) */
+    
+    /* Jika ingin membuat sudutnya *tidak* melengkung */
+    border-radius: 0; 
+    
+    /* Animasi/Efek Hover */
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    
+
+}
+
+/* Efek saat Tombol Diarahkan (Hover) */
+.menu-button:hover {
+    background-color:  #4C4C4C;; /* Sedikit lebih terang saat di-hover */
+    
+}
+
+/* Efek saat Tombol Diklik (Active/Pressed) */
+.menu-button:active {
+    /* Pindahkan tombol ke bawah-kanan untuk simulasi ditekan */
+    transform: translate(4px, 3px); 
+    /* Ubah posisi bayangan agar terlihat rata */
+    box-shadow: 
+        2px 2px 0 0 #3a3a3a, /* Bayangan lebih kecil */
+        inset 0 0 0 1px #8f8f8f;
+    /* Ubah border untuk simulasi ditekan */
+    border-top: 3px solid #6e6e6e;  /* Garis atas menjadi gelap */
+    border-left: 3px solid #6e6e6e; /* Garis kiri menjadi gelap */
+    border-right: 3px solid #fcfcfc; /* Garis kanan menjadi terang */
+    border-bottom: 3px solid #fcfcfc; /* Garis bawah menjadi terang */
+}

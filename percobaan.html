@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tejekate</title>
+    <link rel="stylesheet" href="percobaan.css">
+     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <div id="macaw-bird"></div>
+    <style>
+/* ... Gaya CSS Anda yang lain ... */
+
+/* Gaya untuk Burung Macaw */
+#macaw-bird {
+    width: 60px; /* Sesuaikan ukuran burung */
+    height: 60px; /* Sesuaikan ukuran burung */
+    background-image: url(mikrotik.png); /* Ganti dengan URL gambar Macaw */
+    /* Anda bisa cari atau buat gambar PNG Macaw Minecraft */
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute; /* Penting untuk animasi pergerakan */
+    top: 50%; /* Posisi awal vertikal yang bisa disesuaikan */
+    right: -60px; /* Mulai dari luar sisi kanan */
+    transform: translateY(-50%);
+    z-index: 1000; /* Pastikan burung berada di atas elemen lain */
+    opacity: 1;
+    transition: all 0.5s ease-in-out; /* Transisi untuk pergerakan halus */
+}
+
+/* Kelas untuk pergerakan utama */
+.fly-in {
+    animation: flyIn 3s forwards; /* Animasi masuk */
+}
+
+.perch {
+    left: calc(50% + 50px); /* Sesuaikan posisi hinggap di atas 'TJKT LEARNING' */
+    right: unset;
+    /* Sesuaikan 'top' jika perlu agar pas di atas tulisan */
+    top: 150px; /* Angka ini perlu disesuaikan dengan posisi tulisan TJKT LEARNING di web Anda */
+}
+
+.fly-away {
+    animation: flyAway 3s forwards; /* Animasi terbang pergi */
+}
+
+/* Definisi Keyframes untuk Animasi Terbang Masuk (Kanan ke Tengah) */
+@keyframes flyIn {
+    0% {
+        right: -60px;
+        top: 200px; /* Awal dari kanan agak atas */
+        transform: scaleX(1); /* Menghadap kiri */
+    }
+    100% {
+        right: unset; /* Hapus right agar left bisa berfungsi */
+        left: 50%; /* Sesuaikan posisi hinggap horizontal */
+        top: 150px; /* Posisi hinggap vertikal */
+        transform: scaleX(1); /* Tetap menghadap kiri saat hinggap */
+    }
+}
+
+/* Definisi Keyframes untuk Animasi Terbang Pergi (Tengah ke Kiri) */
+@keyframes flyAway {
+    0% {
+        left: 50%;
+        top: 150px;
+        transform: scaleX(1); /* Menghadap kiri */
+    }
+    50% {
+        left: 200px; /* Titik tengah di perjalanan */
+        top: 100px; /* Terbang lebih tinggi di tengah */
+        transform: scaleX(-1) rotate(-10deg); /* Balik arah dan sedikit miring */
+    }
+    100% {
+        left: -80px; /* Hilang ke kiri */
+        top: 50px; /* Lebih tinggi lagi */
+        opacity: 0;
+        transform: scaleX(-1) rotate(-20deg); /* Menghadap kanan (terbalik) dan miring */
+    }
+}
+</style>
+
+
+    <header class="header">
+        <img src="minecraft tkj (1).png" class="logo">
+        
+        <div class="header-tools">
+            <im src="tkj learning.png" alt="Diamond Pickaxe" class="pickaxe">
+            <mg src="pedang.png" alt="Diamond Pickaxe" class="pickaxe">
+        </div>
+        <nav class="navigation">
+            <a href="minecraft.html" class="nav-item">HOME</a>
+            <a href="dokumen.htm" class="nav-item">DOKUMEN</a> 
+            <a href="jurnal.html" class="nav-item">JURNAL</a>
+            <a href="#" class="nav-item">CONTACT</a>
+        </nav>
+    </header>
+
+
+    <div class="menu-container">
+        
+        <button class="menu-button">Achievements</button>
+        <br>
+        <button class="menu-button">Achievements</button>
+        <br>
+        <button class="menu-button">Achievements</button>
+        <br>         
+        <button class="menu-button">Achievements</button>
+        <br>
+        <button class="menu-button">Achievements</button>
+    </div>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const macaw = document.getElementById('macaw-bird');
+
+    // 1. Terbang Masuk (Fly In)
+    // Mulai animasi masuk (macaw muncul dari kanan)
+    macaw.classList.add('fly-in');
+
+    // Durasi animasi flyIn di CSS adalah 3 detik.
+    // Setelah 3 detik, burung harus "hinggap" (menghentikan animasi) dan bersiap untuk waktu tunggu.
+    setTimeout(() => {
+        // Hapus animasi 'fly-in' untuk menghentikan pergerakan keyframe
+        macaw.classList.remove('fly-in');
+        
+        // Atur posisi akhir agar burung tetap di tempat hinggap
+        // Catatan: Dalam kode ini, posisi akhir flyIn (100% keyframe) sudah menjadi posisi hinggap.
+        // Tambahkan kelas .perch jika ingin penyesuaian posisi tambahan setelah animasi selesai.
+        
+        // 2. Waktu Tunggu (Perch/Hinggap)
+        // Set timeout 3 detik untuk waktu hinggap
+        setTimeout(() => {
+            // 3. Terbang Pergi (Fly Away)
+            // Tambahkan animasi terbang pergi
+            macaw.classList.add('fly-away');
+
+            // Opsional: Setelah animasi terbang pergi selesai (3 detik), hapus elemen
+            setTimeout(() => {
+                macaw.remove(); // Menghapus burung dari DOM setelah menghilang
+            }, 3000); // 3 detik durasi flyAway
+            
+        }, 3000); // 3 detik waktu hinggap di tulisan TJKT LEARNING
+        
+    }, 3000); // 3 detik durasi terbang masuk (fly-in)
+});
+</script>
+</body>
+</html>
