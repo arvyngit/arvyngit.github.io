@@ -1,0 +1,77 @@
+/* Gaya Dasar Halaman */
+body {
+    display: flex;
+    justify-content: center; /* Pusatkan secara horizontal */
+    align-items: center; /* Pusatkan secara vertikal */
+    min-height: 100vh; /* Pastikan tinggi halaman minimal 100% viewport */
+    margin: 0;
+    background-color:var(--minecraft-light-gray);
+    /* Untuk gaya pixelated, bisa ditambahkan font pixel art jika diinginkan */
+    font-family: sans-serif; /* Font default */
+}
+
+/* Container untuk Menu */
+.menu-container {
+    display: flex;
+    flex-direction: column; /* Tombol disusun vertikal */
+    gap: 25px; /* Jarak antar tombol */
+    padding: 20px;
+}
+
+/* Gaya untuk Tombol Menu */
+.menu-button {
+    /* Ukuran dan Teks */
+    width: 350px; /* Sesuaikan lebar sesuai kebutuhan */
+    padding: 15px 30px;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    
+    /* Warna dan Border (untuk tampilan seperti Minecraft/Retro) */
+    background-color: var(--minecraft-light-gray);
+    color: #1f1f1f; /* Warna teks gelap */
+    border: none;
+    cursor: pointer;
+    
+    /* Efek Pixelated/Blok */
+    border-top: 3px solid #fcfcfc;    /* Garis atas sangat terang/putih */
+    border-left: 3px solid #fcfcfc;   /* Garis kiri sangat terang/putih */
+    border-right: 3px solid #6e6e6e;  /* Garis kanan abu-abu gelap */
+    border-bottom: 3px solid #6e6e6e; /* Garis bawah abu-abu gelap */
+    
+    /* Bayangan (Shadow) agar terlihat timbul seperti pada gambar */
+    box-shadow: 
+        4px 4px 0 0 #3a3a3a, /* Bayangan utama di bawah-kanan (seperti blok) */
+        -4px -4px 0 0 #e8e8e8, /* Bayangan ringan di atas-kiri (opsional untuk efek timbul) */
+        inset 0 0 0 1px #8f8f8f; /* Garis tipis di dalam untuk detail (opsional) */
+    
+    /* Jika ingin membuat sudutnya *tidak* melengkung */
+    border-radius: 0; 
+    
+    /* Animasi/Efek Hover */
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    
+
+}
+
+/* Efek saat Tombol Diarahkan (Hover) */
+.menu-button:hover {
+    background-color:  #4C4C4C;; /* Sedikit lebih terang saat di-hover */
+    
+}
+
+/* Efek saat Tombol Diklik (Active/Pressed) */
+.menu-button:active {
+    /* Pindahkan tombol ke bawah-kanan untuk simulasi ditekan */
+    transform: translate(4px, 3px); 
+    /* Ubah posisi bayangan agar terlihat rata */
+    box-shadow: 
+        2px 2px 0 0 #3a3a3a, /* Bayangan lebih kecil */
+        inset 0 0 0 1px #8f8f8f;
+    /* Ubah border untuk simulasi ditekan */
+    border-top: 3px solid #6e6e6e;  /* Garis atas menjadi gelap */
+    border-left: 3px solid #6e6e6e; /* Garis kiri menjadi gelap */
+    border-right: 3px solid #fcfcfc; /* Garis kanan menjadi terang */
+    border-bottom: 3px solid #fcfcfc; /* Garis bawah menjadi terang */
+}

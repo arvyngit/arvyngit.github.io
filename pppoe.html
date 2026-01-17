@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pppoe</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    
+    <header class="header">
+        <br>
+        <br>
+        <br>
+        <img src="minecraft tkj (1).png" class="logo">
+        
+        <div class="header-tools">
+            <im src="tkj learning.png" alt="Diamond Pickaxe" class="pickaxe">
+            <mg src="pedang.png" alt="Diamond Pickaxe" class="pickaxe">
+        </div>
+        <nav class="navigation">
+            <a href="index.html" class="nav-item">HOME</a>
+            <a href="dokumen.html" class="nav-item">DOKUMEN</a> 
+            <a href="jurnal.html" class="nav-item">JURNAL</a>
+            <a href="#" class="nav-item">CONTACT</a>
+        </nav>
+    </header>
+     <main class="main-content">
+        <div class="text-box">
+            <h3>Hai Bertemu lagi dengan saya</h3>
+    <p>kita mulai saja ya untuk tutorial setting pppoe nya</p>
+    <p>untuk setting pppoe kita bisa menggunakan 2 cara yaitu cara manual dan pakai cli/ssh </p>
+    <p>kita mulai dari cara yang manual terlebih dahulu</p>
+    <h3>setting pppoe manual</h3>
+    <ol type="1">
+    <li>
+        login MIKROTIK terlebih dahulu,lalu konfigurasi MIKROTIK agar mendapat internet
+    </li>
+    <li>Kalau sudah buka menu PPP yang ada di MIKROTIK</li>
+    <p>dengan posisi komputer telah tersambung ke internet </p>
+    <img src="image 1.png">
+    <li>masuk ke menu pppoe server</li>
+    <img src="image 2.png">
+    <li>tambah pppoe server yang baru dengan menklik tombol +</li>
+    <img src="image 3.png">
+    <li>tambahkan service ke ether 4</li>
+    <p>Berhubung saya mau menggunakan ether 4 jadi saya pilih  ether 4 ,ini terserah kalian mau ditaruh ether berapa</p>
+    <img src="image 4.png">
+    <p>Jika sudah tekan tombol Apply dan OK</p>
+    <li>untuk step petama selesai</li>
+    <p>Jika sudah semua tampilan dari konfigurasi tadi akan seperti ini</p>
+    <img src="image 5.png">
+    <p>next kita lanjut ke step berikutnya</p>
+    <h4>SETTING USERNAME DAN PASSWORD</h4>
+    <li>Masuk ke menu SECRETS</li>
+    <img src="image 6.png">
+    <p>lalu tekan tombol + yang warna biru</p>
+    <li>Add USERNAME dan PASSWORD</li>
+    <p>kita harus tambahkan USERNAME dan PASSWORD yang akan kita gunakan,pastikan USERNAME dan PASSWORD yang di buat itu aman dan susah untuk di tebak
+    </p>
+    <img src="image 7.png">
+    <li>ADD Local dan Remote address</li>
+    <p>supaya apa? supaya clinet bisa menggunakan internet dengan PPPOE kita,jadi kita harus tambahkan local dan remot address </p>
+    <img src="image 8.png">
+    <p>Local Address adalah IP address yang akan ditempelkan ke interface yang ada di PPPoE server.</p>
+    <p>Remote Address adalah IP address yang akan ditempelkan ke interface yang ada di PPPoE client.</p>
+    <p>Setelah itu click tombol Apply, kemudian OK</p>
+    <p>SEKARANG PPPOE SERVER SUDAH BISA DI GUNAKAN</p>
+
+    </ol>
+    <h3> setting pppoe cepat dengan terminal</h3>
+    <p>cara nya mudah dengan masuk ke menu terminal yang ada di MIKROTIK</p>
+    <ol>
+        <li>masuk kemenu terminal</li>
+        <li>KETIK /ip pool ENTER</li>
+        <p>ini untuk masuk ke ip pool nya dan memberikan ip</p>
+        <li>KETIK add name=pppoe ranges=10.0.0.2-10.0.0.5  ENTER
+            <p>ini untuk memberikan ip kepada pppoe server nya</p>
+        </li>
+        <li> kemudian KETIK /ppp profile ENTER</li>
+        <p>Ini manandakan kita masuk ke menu ppp yang ada di MIKROTIK</p>
+        <li>KETIK add local-address=10.0.0.1 name=for-pppoe remote-address=pppoe-pool ENTER</li>
+        <li>KETIK /ppp secret ENTER </li>
+        <li>KETIK add name=(terserah kalian) password=(terserah) profile=for-pppoe service=pppoe</li>
+        <li>KETIK /interface pppoe-server server</li>
+        <li>KETIK add default-profile=for-pppoe disable=no interface=ether4 service-name=pppoeserver</li>
+        <h4>nah kita sudah selesai setting pppoe secara cepat menggunakan terminal yang ada di MIKROTIK</h4>
+    </ol>
+    <h3>Sekarang kita akan setting pppoe client</h3>
+    <ol>
+        <li>BUKA MENU PPP</li>
+        <img src="image 1.png">
+        <li>BUKA MENU interface</li>
+        <IMG src="image 9.png">
+            <li>TAMBAHKAN INTERFACE BARU</li>
+            <img src="image 10.png">
+            <li>PILIH PPPOE client</li>
+            <img src="image 11.png">
+            <li>TAMBAHKAN PPPoe cient ke ether1</li>
+            <p>Kita pilih interface menuju PPPoE server kita. Sesuai topologi kita, PPPoE server itu ada di interface ether1.</p>
+            <img src="image 12.png">
+            <li>BUKA MENU Dial-Out</li>
+            <img src="image 13.png">
+            <li>Masukkan Username Dan Password</li>
+            <img src="image 14.png">
+            <p>kemudian tekan tombol APPLY,kemudian OK</p>
+            <li>SELAMAT KITA SUDAH BERHASIL</li>
+            <P>Kalau di menu PPP sudah muncul pppoe-out dan disampingnya ada flag R maka settingan PPPoE kita sudah berhasil
+            </P>
+<img src="image 15.png">
+<h3>sekarang setting pppoe client pakai terminal</h3>
+</ol>
+<ol>
+<h4>SELAMAT SETTING PPPOE SUDAH BERHASI</h4>
+    <li>[admin@MikroTik] > interface pppoe-client add interface=ether2 password=StrongPass service-name=pppoeservice name=PPPoE-Out disabled=no user=MT-User</li>
+    <li>[admin@MikroTik] > interface pppoe-client print</li>
+    <li>Flags: X - disabled, I - invalid, R - running 
+ 0  R name="PPPoE-Out" max-mtu=auto max-mru=auto mrru=disabled interface=ether2 user="MT-User" 
+      password="StrongPass" profile=default keepalive-timeout=10 service-name="pppoeservice" ac-name="" 
+      add-default-route=no dial-on-demand=no use-peer-dns=no allow=pap,chap,mschap1,mschap2</li>
+</ol>
+<h4>selesai sudah setting pppoe kali ini gimana mudah bukan</h4>
+
+        </div>
+    </main>
+
+     <footer class="footer">
+        <div class="social-icons">
+            
+            <img src="logo wa.png" alt="Facebook">
+            <img src="instagram.png" alt="Twitter">
+            <img src="logo tt.png" alt="Instagram">
+            <img src="instagram.png" alt="YouTube">
+        </div>
+        <div class="batu">
+            <img src="">
+        </div>
+        <p class="copyright">&copy; ARGA OKY SAPUTRA</p>
+        <p class="copyright">TERKNIK JARINGAN KOMPUTER DAN TELEKOMUNIKASI</p>
+    </footer>
+
+</body>
+</html>
